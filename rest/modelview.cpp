@@ -29,12 +29,32 @@ QVariant jjfp::rest::ModelView::data(const QModelIndex &index, int role) const
     auto user = m_users.at(index.row());
 
     if (role == Roles::NameRole) {
+        return QString{user.name().c_str()};
     }
+
+    if (role == Roles::EmaiRole) {
+        return QString{user.email().c_str()};
+    }
+
+    if (role == Roles::LoginRole) {
+        return QString{user.login().c_str()};
+    }
+
+    if (role == Roles::AvatarRole) {
+        return QString{user.avatarUrl().c_str()};
+    }
+
+    return QVariant{};
 }
 
 QHash<int, QByteArray> jjfp::rest::ModelView::roleNames() const
 {
     QHash<int, QByteArray> roles;
 
-    roles[]
+    roles[Roles::NameRole] = "name";
+    roles[Roles::EmaiRole] = "email";
+    roles[Roles::LoginRole] = "login";
+    roles[Roles::AvatarRole] = "avatar";
+
+    return roles;
 }

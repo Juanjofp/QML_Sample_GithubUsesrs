@@ -7,11 +7,12 @@
 
 namespace jjfp::rest {
 
-class ModelView : QAbstractListModel {
+class ModelView : public QAbstractListModel
+{
     Q_OBJECT
 
 public:
-    enum class Roles : int { NameRole = Qt::UserRole + 1, EmaiRole, LoginRole, AvatarRole };
+    enum Roles : int { NameRole = Qt::UserRole + 1, EmaiRole, LoginRole, AvatarRole };
 
     ModelView();
 

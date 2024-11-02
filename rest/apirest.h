@@ -7,21 +7,22 @@
 
 namespace jjfp::rest {
 
-class ApiRest : public QObject {
-  Q_OBJECT
+class ApiRest : public QObject
+{
+    Q_OBJECT
 
-  QML_ELEMENT
-  // QML_SINGLETON
+    QML_ELEMENT
+    // QML_SINGLETON
 
-  Q_PROPERTY(ModelView &model READ model CONSTANT)
+    Q_PROPERTY(const ModelView *model READ model CONSTANT)
 
-  public:
-  ApiRest();
+public:
+    ApiRest();
 
-  ModelView &model();
+    ModelView *model();
 
-  private:
-  ModelView m_model;
+private:
+    ModelView m_model;
 };
 
-}  // namespace jjfp::rest
+} // namespace jjfp::rest
