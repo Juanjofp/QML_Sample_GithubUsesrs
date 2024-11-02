@@ -1,13 +1,18 @@
 message(STATUS ">>>> Building rest")
 
+set(CMAKE_CXX_STANDARD 23)
+
 set(MODULE_NAME apiRest)
 set(LIB_NAME ${MODULE_NAME}Lib)
 
 qt_add_library(${LIB_NAME} STATIC)
 
 set_target_properties(${LIB_NAME} PROPERTIES AUTOMOC ON)
+
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Core)
-target_link_libraries(${LIB_NAME} PRIVATE Qt6::Quick Qt6::Core)
+find_package(github_info)
+
+target_link_libraries(${LIB_NAME} PRIVATE Qt6::Quick Qt6::Core github_info::github_info)
 
 list(APPEND MODULE_SRC_FILES apirest.h apirest.cpp gituser.h modelview.h modelview.cpp)
 

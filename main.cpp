@@ -7,13 +7,13 @@
 int main(int argc, char *argv[]) {
   QGuiApplication app(argc, argv);
 
-  jjfp::rest::ApiRest apiRest;
+  // jjfp::rest::ApiRest apiRest;
 
   QQmlApplicationEngine engine;
 
   // engine.rootContext()->setContextProperty("apiRest", &apiRest);
 
-  // qmlRegisterType<jjfp::rest::ApiRest>("com.jjfp.rest", 1, 0, "ApiRest");
+  qmlRegisterType<jjfp::rest::ApiRest>("com.jjfp.rest", 1, 0, "ApiRest");
 
   QObject::connect(
       &engine, &QQmlApplicationEngine::objectCreationFailed, &app,

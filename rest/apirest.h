@@ -3,6 +3,8 @@
 #include <QObject>
 #include <QtQml>
 
+#include "github_info.h"
+
 #include "modelview.h"
 
 namespace jjfp::rest {
@@ -23,6 +25,11 @@ public:
 
 private:
     ModelView m_model;
+
+    github_info::GithubInfo info;
+
+private:
+    void asyncMe();
 };
 
 } // namespace jjfp::rest

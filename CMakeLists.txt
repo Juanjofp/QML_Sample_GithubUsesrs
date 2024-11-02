@@ -2,9 +2,13 @@ cmake_minimum_required(VERSION 3.16)
 
 project(GithubUsesrs VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 23)
+
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Core)
+
+find_package(github_info)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -34,7 +38,7 @@ set_target_properties(appGithubUsesrs PROPERTIES
 )
 
 # Add the rest library to the appGithubUsesrs target
-target_link_libraries(appGithubUsesrs PRIVATE Qt6::Quick Qt6::Core apiRestLibplugin)
+target_link_libraries(appGithubUsesrs PRIVATE Qt6::Quick Qt6::Core github_info::github_info apiRestLibplugin)
 
 include(GNUInstallDirs)
 install(TARGETS appGithubUsesrs
